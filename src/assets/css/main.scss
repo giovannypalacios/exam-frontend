@@ -1,6 +1,15 @@
 $primary: #004487;
-$link-color: #f894bc;
+$link-color: #e76a16;
 
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
 
+nav.navbar{padding-left:40px}
+nav a{margin-left:10px}
+.router-link-exact-active{color:#ffffff;text-decoration: underline}
+main {padding-top:60px}
+h1, h2, h3, h4, table th{color:#042e57}
+h3{margin-bottom: 30px}
+h4{font-size:22px; font-weight:300; margin-bottom:60px}
+.component-title{margin-bottom:10px}
+h3 small{font-size:27px;color: #e76a16;text-transform:capitalize;font-style:italic}

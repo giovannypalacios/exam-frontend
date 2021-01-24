@@ -6,12 +6,17 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect: '/clientes'
+    redirect: '/inicio'
   },
   {
     path: '/',
     component: () => import('../views/View.vue'),
     children: [
+      {
+        path: 'inicio',
+        name: 'welcome',
+        component: () => import('../components/WelcomeApp.vue')
+      },
       {
         path: 'clientes',
         name: 'customers',

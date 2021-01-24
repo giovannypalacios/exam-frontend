@@ -6,7 +6,8 @@
       variant="primary"
     >
       <b-navbar-brand to="/">Exam Test</b-navbar-brand>
-      <router-link to="/">Usuarios</router-link>
+      <router-link to="/">Inicio</router-link>
+      <router-link to="/clientes">Customers</router-link>
     </b-navbar>
     <main class="container">
       <router-view />
