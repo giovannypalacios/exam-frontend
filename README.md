@@ -1,5 +1,9 @@
 # ui
 
+## Configuration
+
+Create a `.env` file using the `.env.sample` file and update the values as needed with the API endpoint.
+
 ## Project setup
 ```
 npm install
