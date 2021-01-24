@@ -1,6 +1,7 @@
 <template>
   <div class="customers-list">
-    <h3>Lista de clientes</h3>
+    <h2 class="component-title">Customers List</h2>
+    <h4>In this page you find the customers table with an action to view the customer orders</h4>
     <b-table
       striped
       bordered
@@ -12,7 +13,7 @@
     >
       <template v-slot:cell(actions)="rowData">
         <router-link :to="`/clientes/${rowData.item.id}/ordenes`">
-          Órdenes
+          View orders
         </router-link>
       </template>
     </b-table>
