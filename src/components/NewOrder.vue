@@ -109,9 +109,10 @@
         </b-row>
         <b-alert
           variant="warning"
-          :show="quantity > 5 || order.deliveryAddress===''"
+          :show="quantity<=0 || quantity > 5 || order.deliveryAddress===''"
           class="mt-3 w-100"
         >
+          <div v-show="quantity <= 0">Please add some products to your order.</div>
           <div v-show="quantity > 5">Your order can have 5 products maximum.</div>
           <div v-show="order.deliveryAddress===''">Please write the delivery address.</div>
         </b-alert>
@@ -220,6 +221,7 @@ export default {
       }
       this.saved = false
       this.error = null
+      this.quantity = 0
     }
   }
 }
