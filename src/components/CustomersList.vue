@@ -29,6 +29,7 @@
       next-text="Next"
       last-text="Last"
       size="sm"
+      class="mt-4 mb-5"
       @input="loadPage"
     />
   </div>

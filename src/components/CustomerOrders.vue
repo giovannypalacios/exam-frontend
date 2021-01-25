@@ -2,8 +2,8 @@
   <b-container class="customer-orders">
     <h2 class="component-title">Customer Orders</h2>
     <h3><small class="ml-20">{{ customerName }}</small></h3>
-    <h4>Here is the orders table for the selected customer during the actual month.<br>
-      Here you can use the Datepicker to filter by date.</h4>
+    <h4>Here you will find the orders table for the selected customer during the current month.<br>
+      You can use the Datepicker to filter by start/end date.</h4>
 
     <b-row
       :cols="2"
@@ -28,7 +28,7 @@
       </b-col>
     </b-row>
 
-    <b-row v-if="ordersData.content.length > 0">
+    <div v-if="ordersData.content.length > 0">
       <b-table
         striped
         bordered
@@ -54,9 +54,10 @@
         next-text="Next"
         last-text="Last"
         size="sm"
+        class="mt-4 mb-5"
         @input="loadPage"
       />
-    </b-row>
+    </div>
     <b-row v-else>
       <b-alert
         show
