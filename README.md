@@ -9,6 +9,7 @@ This project was build using the javascript framework: [Vue.js](https://vuejs.or
 
 
 Create a `.env` file using the `.env.sample` file and update the values as needed with the API endpoint.
+Please verify that the API server is available on the same port configured in the .env file
 
 ## Project setup
 ```
