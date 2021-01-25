@@ -1,6 +1,12 @@
 # ui
 
+Frontend for the Beitech java developer test.
+
+This app allows you to load a list of customers and select the orders for each of them.
+This project was build using the javascript framework: [Vue.js](https://vuejs.org/).
+
 ## Configuration
+
 
 Create a `.env` file using the `.env.sample` file and update the values as needed with the API endpoint.
 
