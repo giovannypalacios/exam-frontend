@@ -1,6 +1,12 @@
 <template>
   <b-container class="customer-orders">
-    <h2 class="component-title">Customer Orders</h2>
+    <h2 class="component-title">Customer Orders
+      <b-button
+        size="sm"
+        variant="primary"
+        @click="newOrderVisible = true"
+      >Add new</b-button>
+    </h2>
     <h3><small class="ml-20">{{ customerName }}</small></h3>
     <h4>Here you will find the orders table for the selected customer during the current month.<br>
       You can use the Datepicker to filter by start/end date.</h4>
@@ -68,18 +74,24 @@
         <p>No data were found. Try changing the start/end dates range.</p>
       </b-alert>
     </b-row>
+
+    <new-order
+      :availableProducts="availableProducts"
+      :visible="newOrderVisible"
+      @close="newOrderVisible=false"
+      @saved="loadPage(currentPage)"
+    ></new-order>
   </b-container>
 </template>
 
 <script>
 import customerService from '../service/customerService'
 import OrderProductsList from './OrderProductsList'
+import NewOrder from './NewOrder'
 
 export default {
   name: 'CustomerOrders',
-  components: {
-    OrderProductsList
-  },
+  components: { OrderProductsList, NewOrder },
   props: {
     fields: {
       type: Array,
@@ -95,7 +107,9 @@ export default {
       currentPage: 1,
       customer: null,
       startDate: null,
-      endDate: null
+      endDate: null,
+      availableProducts: [],
+      newOrderVisible: false
     }
   },
   mounted: function () {
@@ -122,6 +136,11 @@ export default {
       customerService
         .get(this.$route.params.id)
         .then(response => (this.customer = response.data))
+        .catch(error => console.error(error))
+
+      customerService
+        .getAvailableProducts(this.$route.params.id)
+        .then(response => (this.availableProducts = response.data))
         .catch(error => console.error(error))
     },
     loadPage: function (pageNumber) {
